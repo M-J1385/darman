@@ -1,1 +1,1 @@
-{"name":"درمان دات آی آر","short_name":"Darman","description":"نوبت دهی آنلاین","start_url":"/","display":"standalone","background_color":"red","theme_color":"rgb(59, 123, 242)","lang":"en","scope":"/"}
+{"name":"درمان دات آی آر","short_name":"Darman","description":"نوبت دهی آنلاین","start_url":"/","display":"standalone","background_color":"red","theme_color":"rgb(59, 123, 242)","lang":"en","scope":"/","icons":[{"src":"/icons/darman_192_192.png","sizes":"192x192","type":"image/png"},{"src":"/icons/darman_512_512.png","sizes":"512x512","type":"image/png"}]}
