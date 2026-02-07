@@ -1,0 +1,4912 @@
+@font-face {
+  font-family: 'vazir';
+  src: url(./fonts/Vazir-Regular-FD.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes scroll_x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+body {
+  min-height: 100vh;
+}
+
+body main:has(.editprofilewrapper) {
+  height: 80vh;
+}
+
+.swalcontainerlogin {
+  width: max-content !important;
+  height: fit-content !important;
+  z-index: 999999999999999 !important;
+  background-color: transparent !important;
+  margin: 0 auto !important;
+}
+
+.swal-popup-login {
+  width: max-content !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 50rem !important;
+  padding: 0.2rem 0 !important;
+  margin: 0 !important;
+  font-size: 1.2rem !important;
+  z-index: 999999999999999 !important;
+}
+
+.swal-popup {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 99999999999999 !important;
+}
+
+.swal-icon {
+  margin: 0 !important;
+  font-size: 1.5rem !important;
+}
+
+.swal-title {
+  font-size: 1.4rem !important;
+  text-align: center !important;
+  margin: 0.5em 0 !important;
+}
+
+.swal-close {
+  position: absolute !important;
+  left: 0px !important;
+  top: 0px !important;
+}
+
+.swal-container {
+  z-index: 99999999999999 !important;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  font-family: 'vazir';
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  height: 5.5rem;
+  box-sizing: border-box;
+  padding: 0.7rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(62, 113, 255);
+  box-shadow: 0 5px 10px 1px rgb(191, 190, 190);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  margin-bottom: 2rem;
+}
+
+header .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .headernav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header .headernav .logo {
+  width: 12rem;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.4rem;
+}
+
+header .headernav .logo a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .headernav .logo a img {
+  width: 100%;
+  height: 100%;
+}
+
+header .headernav ul.mainmenu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+header .headernav ul.mainmenu > li {
+  margin: 0 0.5rem;
+  list-style: none;
+  position: relative;
+}
+
+header .headernav ul.mainmenu > li > a {
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  color: white;
+  font-size: 1.07rem;
+  transition: 0.3s;
+}
+
+header .headernav ul.mainmenu > li > button {
+  padding: 0.3rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  color: white;
+  border: none;
+  background-color: transparent;
+  font-size: 1.07rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+header .headernav ul.mainmenu > li > button:hover {
+  background-color: rgba(105, 175, 255, 0.619);
+}
+
+header .headernav ul.mainmenu > li > a:hover {
+  background-color: rgba(105, 175, 255, 0.619);
+}
+
+header .headerauth {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header .headerauth > a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: rgb(62, 113, 255);
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transition: 0.3s;
+}
+
+header .headerauth > a:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+header .headerauth a.doctor {
+  margin-right: 1rem;
+}
+
+header .headerauth .patientmenu {
+  position: relative;
+}
+
+header .headerauth .patientmenu > button {
+  padding: 0.4rem 0.2rem;
+  color: rgb(62, 113, 255);
+  border-radius: 0.3rem;
+  border: 2px solid transparent;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header .headerauth .patientmenu > button.active {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu {
+  position: absolute;
+  width: max-content;
+  min-width: 12rem;
+  left: 0;
+  top: 105%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.208);
+  transition: 0.2s;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0.8rem 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  border-bottom: 1px solid gainsboro;
+  transition: 0.3s;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li:has(> a) {
+  padding: 0;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li > a {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li:hover {
+  background-color: gainsboro;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li.logout {
+  color: red;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li:last-child {
+  border: none;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li > p {
+  margin-left: 1.5rem;
+  font-size: 1.1rem;
+}
+
+header .headerauth .patientmenu ul.patientsubmenu li > a>p{
+  margin-left: 1.5rem;
+}
+
+header .headerauth .patientmenu > button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.drsearchsec .doctorsearch {
+  background: url(./images/doctor-search-bg.webp);
+  background-color: rgb(62, 113, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem 0;
+  min-height: 20rem;
+  border-radius: 0.5rem;
+}
+
+.doctorsearch h1 {
+  color: white;
+}
+
+.doctorsearch h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.doctorsearch .search-input {
+  width: 35%;
+  border-radius: 0.5rem;
+  /* overflow: hidden; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.doctorsearch .search-input .search {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.doctorsearch .search-input .search svg {
+  position: absolute;
+  left: 0.25rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(62, 113, 255);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.doctorsearch .search-input .search svg:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.doctorsearch .search-input .search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding: 0 1rem 0 3rem;
+}
+
+.doctorsearch .search-input .search_result {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 7px 2px rgba(0, 0, 0, 0.34);
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  position: absolute;
+  top: 100%;
+  max-height: 20rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  z-index: 9999;
+  border-radius: 0.5rem;
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+}
+
+.doctorsearch .search-input .search_result.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.doctorsearch .search-input .search_result .searchcat {
+  font-weight: bold;
+  margin: 0.2rem 0;
+}
+
+.doctorsearch .search-input .search_result .searchcat:first-child {
+  margin-top: 0;
+}
+
+.doctorsearch .search-input .search_result .doctor_result {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctorsearch .search-input .search_result .doctor_result > a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.6rem 0.3rem 0;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.doctorsearch .search-input .search_result .doctor_result > a:hover {
+  background-color: gainsboro;
+}
+
+.doctorsearch .search-input .search_result .expertise_result {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctorsearch .search-input .search_result .expertise_result > a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.6rem 0.3rem 0;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.doctorsearch .search-input .search_result .expertise_result > a:hover {
+  background-color: gainsboro;
+}
+
+.doctorsearch .search-input .search_result .province_result {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctorsearch .search-input .search_result .province_result > a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 0.6rem 0.3rem 0;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.doctorsearch .search-input .search_result .province_result > a:hover {
+  background-color: gainsboro;
+}
+
+.authwrapper {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.authwrapper .backtohome {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: white;
+  background-color: rgb(62, 113, 255);
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50rem;
+  box-shadow: 0 0 5px 3px rgb(120, 156, 255);
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authwrapper .backtohome svg {
+  width: 100%;
+  height: 100%;
+}
+
+.authimage {
+  width: 50%;
+  height: 100%;
+}
+
+.authimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.authform {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authform form#patientlogin {
+  width: 25rem;
+  padding: 2rem 1.5rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0 23px 5px rgb(213, 213, 213);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authform form#patientlogin .input-group:has(input) {
+  width: 100%;
+  min-height: 7rem;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  position: relative;
+}
+
+.authform form#patientlogin .input-group label {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  min-height: 2rem;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+}
+
+.authform form#patientlogin .input-group input {
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.05rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+}
+
+form .input-group:has(.passwordhide) input {
+  padding: 0.5rem 0.5rem 0.5rem 2.8rem !important;
+}
+
+form .input-group .passwordhide {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  box-sizing: border-box;
+  padding: 0 0 0 0.5rem;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  width: 2.3rem;
+  height: 2.5rem;
+  color: rgb(54, 54, 54);
+}
+
+.authform form#patientlogin .input-group input:focus {
+  border: 2px solid transparent;
+  box-shadow: 0 0 5px 2px rgb(85, 130, 255);
+}
+
+.authform form#patientlogin .input-group span {
+  display: flex;
+  width: 100%;
+  min-height: 2rem;
+  align-items: start;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  color: red;
+}
+
+.authform form#patientlogin .input-group:has(button) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.authform form#patientlogin .input-group button {
+  width: 45%;
+  height: 2.8rem;
+  font-size: 1.1rem;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.authform form#patientlogin .input-group button:hover {
+  background-color: transparent;
+  color: rgb(62, 113, 255);
+  border: 2px solid rgb(62, 113, 255);
+}
+
+.authform form#patientlogin .input-group:has(p) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.authform form#patientlogin .input-group > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.authform form#patientlogin .input-group > p > a {
+  text-decoration: none;
+  color: rgb(62, 113, 255);
+  margin: 0 0.3rem;
+}
+
+.authform form#patientsignup {
+  width: 38rem;
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0 23px 5px rgb(213, 213, 213);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authform form#patientsignup > h1 {
+  margin-bottom: 0.5rem;
+}
+
+.authform form#patientsignup .input-row:has(input) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.authform form#patientsignup .input-row .input-group {
+  width: 47%;
+  min-height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  position: relative;
+}
+
+.authform form#patientsignup .input-row .input-group label {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  min-height: 2rem;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+}
+
+.authform form#patientsignup .input-row .input-group input {
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.05rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+}
+
+.authform form#patientsignup .input-row .input-group input:focus {
+  border: 2px solid transparent;
+  box-shadow: 0 0 5px 2px rgb(85, 130, 255);
+}
+
+.authform form#patientsignup .input-row .input-group span {
+  display: flex;
+  width: 100%;
+  min-height: 2rem;
+  align-items: start;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  color: red;
+}
+
+.authform form#patientsignup .input-row:has(button) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.authform form#patientsignup .input-row button {
+  width: 30%;
+  height: 3rem;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.5rem;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  font-size: 1.1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.authform form#patientsignup .input-row button:hover {
+  border: 2px solid rgb(62, 113, 255);
+  background-color: transparent;
+  color: rgb(62, 113, 255);
+}
+
+.authform form#patientsignup .input-row:has(p) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.authform form#patientsignup .input-row > a {
+  text-decoration: none;
+  color: rgb(62, 113, 255);
+  margin-right: 0.3rem;
+}
+
+.authform form#doctorlogin {
+  width: 25rem;
+  padding: 2rem 1.5rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0 23px 5px rgb(213, 213, 213);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authform form#doctorlogin .input-group:has(input) {
+  width: 100%;
+  min-height: 7rem;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  position: relative;
+}
+
+.authform form#doctorlogin .input-group label {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  min-height: 2rem;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+}
+
+.authform form#doctorlogin .input-group input {
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.05rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+}
+
+.authform form#doctorlogin .input-group input:focus {
+  border: 2px solid transparent;
+  box-shadow: 0 0 5px 2px rgb(85, 130, 255);
+}
+
+.authform form#doctorlogin .input-group span {
+  display: flex;
+  width: 100%;
+  min-height: 2rem;
+  align-items: start;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  color: red;
+}
+
+.authform form#doctorlogin .input-group:has(button) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.authform form#doctorlogin .input-group button {
+  width: 45%;
+  height: 2.8rem;
+  font-size: 1.1rem;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.authform form#doctorlogin .input-group button:hover {
+  background-color: transparent;
+  color: rgb(62, 113, 255);
+  border: 2px solid rgb(62, 113, 255);
+}
+
+.adminloginwrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('./images/doctor-search-bg.webp');
+  background-color: rgb(55, 108, 253);
+  position: relative;
+}
+
+.adminloginwrapper > .backtohome {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: rgb(62, 113, 255);
+  background-color: rgb(255, 255, 255);
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50rem;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminloginwrapper > .backtohome > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.adminloginwrapper.notaccess {
+  position: relative;
+}
+
+.adminloginwrapper.notaccess::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(110, 110, 110, 0.986);
+}
+
+.adminloginwrapper form {
+  width: 25rem;
+  padding: 2rem 1.5rem;
+  border-radius: 0.9rem;
+  background-color: white;
+  /* box-shadow: 0 0 23px 5px rgb(213, 213, 213); */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.adminloginwrapper form > img {
+  width: 100%;
+  height: 7rem;
+  margin-bottom: 1rem;
+}
+
+.adminloginwrapper form .input-group:has(input) {
+  width: 100%;
+  min-height: 7rem;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  position: relative;
+}
+
+.adminloginwrapper form .input-group label {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  min-height: 2rem;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+}
+
+.adminloginwrapper form .input-group input {
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.05rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+}
+
+.adminloginwrapper form .input-group input:focus {
+  border: 2px solid transparent;
+  box-shadow: 0 0 5px 2px rgb(85, 130, 255);
+}
+
+.adminloginwrapper form .input-group span {
+  display: flex;
+  width: 100%;
+  min-height: 2rem;
+  align-items: start;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  color: red;
+}
+
+.adminloginwrapper form .input-group:has(button) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.adminloginwrapper form .input-group button {
+  width: 45%;
+  height: 2.8rem;
+  font-size: 1.1rem;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.adminloginwrapper form .input-group button:hover {
+  background-color: transparent;
+  color: rgb(62, 113, 255);
+  border: 2px solid rgb(62, 113, 255);
+}
+
+.admindashboard {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admindashboard .sidepanel {
+  width: 18%;
+  height: 100%;
+  background-color: #2a3335;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  box-sizing: border-box;
+  /* padding: 0 0.9rem; */
+}
+
+.admindashboard .sidepanel .adminmenu {
+  width: 100%;
+  height: 80%;
+  box-sizing: border-box;
+  overflow: auto;
+  margin-top: 2rem;
+  padding: 0 0.9rem;
+  direction: ltr;
+}
+
+.admindashboard .sidepanel .adminmenu::-webkit-scrollbar {
+  background-color: rgb(107, 107, 107);
+  width: 6px;
+  border-radius: 50rem;
+}
+
+.admindashboard .sidepanel .adminmenu::-webkit-scrollbar-thumb {
+  background-color: rgb(212, 212, 212);
+  border-radius: 50rem;
+}
+
+.admindashboard .sidepanel .adminmenu > li:first-child {
+  margin-top: 0 !important;
+}
+
+.admindashboard .sidepanel .adminmenu li {
+  width: 100%;
+  list-style: none;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.admindashboard .sidepanel .adminmenu li > .adminsubmenu {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+
+.admindashboard .sidepanel .adminmenu li > .adminsubmenu.show {
+  height: var(--submenu-height);
+  transition: 0.4s;
+}
+
+.admindashboard .sidepanel .adminmenu li > span {
+  width: 100%;
+  color: white;
+  padding: 0.5rem 1rem;
+  background-color: rgb(62, 113, 255);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.admindashboard .sidepanel .adminmenu li > span.open {
+  background-color: transparent;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.admindashboard .sidepanel .adminmenu li > span > p {
+  transition: 0.3s;
+}
+
+.admindashboard .sidepanel .adminmenu li > span > i {
+  transition: 0.3s;
+}
+
+.admindashboard .sidepanel .adminmenu li > span > i.flip {
+  transform: rotate(180deg);
+}
+
+.admindashboard .sidepanel .adminmenu li > span:hover > p {
+  padding-right: 0.6rem;
+}
+
+.admindashboard .sidepanel .adminmenu li a {
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  background-color: rgb(62, 113, 255);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+}
+
+.admindashboard .sidepanel .adminmenu li a:hover {
+  padding-right: 1.6rem;
+}
+
+.admindashboard .sidepanel .sideheader {
+  width: 100%;
+  height: 12%;
+  border-bottom: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  box-sizing: border-box;
+  padding: 0 0.9rem;
+}
+
+.admindashboard .sidepanel .sideheader .profilepic {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(62, 113, 255);
+  padding: 0.5rem;
+  box-sizing: border-box;
+  margin-left: 1rem;
+}
+
+.admindashboard .sidepanel .sideheader .profilepic:has(img) {
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.admindashboard .sidepanel .sideheader .profilepic svg {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.admindashboard .sidepanel .sideheader .profilepic img {
+  width: 100%;
+  height: 100%;
+}
+
+.admindashboard .sidepanel .sideheader .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  width: 10rem;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.admindashboard .sidepanel .sideheader .info h2 {
+  font-size: 1.2rem;
+}
+
+.admindashboard .sidepanel .sideheader .info h2.animate {
+  width: fit-content;
+  box-sizing: border-box;
+  padding-right: 1rem;
+  animation-name: scroll_x;
+  animation-timing-function: linear;
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
+}
+
+.admindashboard .maincontent {
+  width: 82%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgb(239, 238, 238);
+}
+
+.admindashboard .maincontent .adminheader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  background-color: rgb(84, 130, 255);
+}
+
+.admindashboard .maincontent .adminheader .welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .adminheader .welcome > h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .adminheader .welcome > h2 svg {
+  margin-right: 0.5rem;
+}
+
+.admindashboard .maincontent .adminheader .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .adminheader .profile button {
+  padding: 0.3rem 1rem;
+  box-sizing: border-box;
+  border-radius: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: rgb(62, 113, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admindashboard .maincontent .adminheader .profile button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.admindashboard .maincontent .adminheader .profile button#adminprofile {
+  margin-left: 1rem;
+}
+
+.admindashboard .maincontent .adminheader .profile button#adminprofile > i {
+  margin-left: 0.4rem;
+}
+
+.admindashboard .maincontent .adminheader .profile button#adminlogout > svg {
+  margin-right: 0.4rem;
+}
+
+.admindashboard .maincontent .contentsec {
+  width: 100%;
+  height: 88%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+}
+
+.admindashboard .maincontent .contentsec .countinfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.admindashboard .maincontent .contentsec .countinfo > div {
+  width: 31.333%;
+  margin: 0 1%;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  background-color: #3e3e3e;
+}
+
+.admindashboard .maincontent .contentsec .countinfo > div .count_text {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  color: white;
+}
+
+.admindashboard .maincontent .contentsec .countinfo > div .count_icon {
+  width: 4rem;
+  height: 4rem;
+  padding: 0.7rem;
+  color: white !important;
+  fill: white !important;
+  border-radius: 50rem;
+  background-color: rgb(62, 113, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .contentsec .countinfo > div .count_icon svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .contentsec .countinfo > .doctorcount .count_icon svg path {
+  fill: white !important;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo .recent_appointments {
+  width: 64.6666%;
+  margin: 0 1%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #3e3e3e;
+  border-radius: 0.5rem;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo .recent_appointments > h2 {
+  box-sizing: border-box;
+  padding-right: 1rem;
+  color: white;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo .recent_appointments .recent_itembox {
+  width: 100%;
+  height: 17rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox
+  .notfound {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.doctoroffdays {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+  overflow: auto;
+}
+
+.doctoroffdays .offdays {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctoroffdays .offdays > .swiper {
+  width: 100%;
+  margin-top: 2rem;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+}
+
+.doctoroffdays .offdays > .swiper .day-item {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: transparent;
+  color: black;
+  border: 2px solid gray;
+  border-radius: 0.7rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.doctoroffdays .offdays > .swiper .day-item:hover {
+  border: 2px solid rgb(59, 123, 242);
+  color: rgb(59, 123, 242);
+}
+
+.doctoroffdays .offdays > .swiper .day-item.selected {
+  background-color: rgb(59, 123, 242);
+  border: 2px solid transparent;
+  color: white;
+}
+
+.doctoroffdays .off_type {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.doctoroffdays .off_type .inputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.doctoroffdays .off_type .inputs .input-group {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.doctoroffdays .off_type .inputs .input-group label {
+  margin-left: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.doctoroffdays .off_type .inputs .input-group .radiobtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50rem;
+  border: 2px solid gray;
+  cursor: pointer;
+}
+
+.doctoroffdays .off_type .inputs .input-group .radiobtn input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.doctoroffdays .off_type .inputs .input-group .radiobtn span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  scale: 0;
+  border-radius: 50rem;
+}
+
+.doctoroffdays .off_type .inputs .input-group .radiobtn input:checked + span {
+  scale: 1;
+}
+
+.doctoroffdays .submit_off {
+  width: 100%;
+  display: flex;
+}
+
+.doctoroffdays .submit_off button {
+  padding: 0.4rem 1rem;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.doctoroffdays .submit_off button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.doctoroffdays .submit_off button:disabled:hover {
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.doctoroffdays .submit_off button:hover {
+  background-color: transparent;
+  color: rgb(59, 123, 242);
+  border: 2px solid rgb(59, 123, 242);
+}
+
+.doctoroffdays .off_slots {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.doctoroffdays .off_slots > h3 {
+  margin-bottom: 1rem;
+}
+
+.doctoroffdays .off_slots .select_shift {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.doctoroffdays .off_slots .select_shift .input-group {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.doctoroffdays .off_slots .select_shift .input-group label {
+  margin-left: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.doctoroffdays .off_slots .select_shift .input-group .radiobtn {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50rem;
+  border: 2px solid gray;
+  cursor: pointer;
+}
+
+.doctoroffdays .off_slots .select_shift .input-group .radiobtn input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.doctoroffdays .off_slots .select_shift .input-group .radiobtn span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  scale: 0;
+  border-radius: 50rem;
+}
+
+.doctoroffdays .off_slots .select_shift .input-group .radiobtn input:checked + span {
+  scale: 1;
+}
+
+.doctoroffdays .off_slots .shifts {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+
+.doctoroffdays .off_slots .shifts > div {
+  width: 15rem;
+  min-height: 7rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+.doctoroffdays .off_slots .shifts > div > h4 {
+  height: 2.5rem;
+  width: fit-content;
+}
+
+.doctoroffdays .off_slots .shifts > div > span {
+  width: 100% !important;
+  height: 2.5rem !important;
+  min-width: 0 !important;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.doctoroffdays .off_slots .shifts > div > span > span {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+}
+
+.doctoroffdays .off_slots .shifts > div > span > span input {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  flex-grow: unset !important;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-right: none;
+  border-top-left-radius: 0.3rem !important;
+  border-bottom-left-radius: 0.3rem !important;
+  line-height: unset !important;
+}
+
+.doctoroffdays .off_slots .shifts > div > p.error {
+  min-height: 2rem;
+  color: red;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox::-webkit-scrollbar {
+  display: none;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox
+  .recentappitem {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox
+  .recentappitem:first-child {
+  margin-top: 0;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox
+  .recentappitem:last-child {
+  margin-bottom: 0;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox
+  .recentappitem
+  > div {
+  width: 31.333%;
+  margin: 0 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_appointments
+  .recent_itembox
+  .recentappitem
+  > div
+  > p {
+  line-height: 2rem;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo .recent_doctors {
+  background-color: #3e3e3e;
+  width: 31.333%;
+  margin: 0 1%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo .recent_doctors > h2 {
+  color: white;
+}
+
+.admindashboard .maincontent .contentsec .recentlyinfo .recent_doctors .recent_doctorbox {
+  width: 100%;
+  height: 17rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_doctors
+  .recent_doctorbox
+  .recent_doctoritem {
+  background-color: white;
+  width: 100%;
+  height: 4rem;
+  margin: 0.3rem 0;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_doctors
+  .recent_doctorbox
+  .recent_doctoritem:first-child {
+  margin-top: 0;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_doctors
+  .recent_doctorbox
+  .recent_doctoritem:last-child {
+  margin-bottom: 0;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_doctors
+  .recent_doctorbox
+  .recent_doctoritem
+  .doctorimage {
+  width: 3.2rem;
+  height: 3.2rem;
+  overflow: hidden;
+  border-radius: 50rem;
+  margin-left: 1rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  .recentlyinfo
+  .recent_doctors
+  .recent_doctorbox
+  .recent_doctoritem
+  .doctorimage
+  img {
+  width: 100%;
+  height: 100%;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  margin: 0.4rem 0;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group {
+  width: 31.333%;
+  margin: 0 1%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: start;
+  min-height: 7rem;
+  position: relative;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > label {
+  font-size: 1.1rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: max-content;
+  box-sizing: border-box;
+  margin: 0 0.2rem 0 0;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > input {
+  width: 100%;
+  height: 3rem;
+  padding: 0.3rem 0.6rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.3rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group:has(.work_days) {
+  width: 64.666%;
+  min-height: 10.5rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > .work_days {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .work_days
+  .dayitem {
+  width: 12.28%;
+  height: 6.5rem;
+  margin: 0 1%;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  transition: 0.2s;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .work_days
+  .dayitem.active {
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .work_days
+  .dayitem:first-child {
+  margin-right: 0;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .work_days
+  .dayitem:last-child {
+  margin-left: 0;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > .selectexp {
+  width: 100%;
+  height: 3rem;
+  padding: 0.3rem 0.6rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: 2px solid gray;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.3rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > span.selectlabel {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > span.selectlabel.lowcolor {
+  color: rgb(108, 108, 108);
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .selecticon {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .selecticon.lowcolor {
+  color: rgb(108, 108, 108);
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions {
+  position: absolute;
+  width: 100%;
+  top: 3.5rem;
+  left: 0;
+  background-color: white;
+  z-index: 999999;
+  box-sizing: border-box;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(156, 155, 155);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  cursor: default;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp {
+  width: 100%;
+  height: 2.3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp
+  input {
+  width: 100%;
+  height: 100%;
+  border: 2px solid gray;
+  border-radius: 0.3rem;
+  outline: none;
+  box-sizing: border-box;
+  padding: 0.3rem 2.3rem 0.3rem 0.5rem;
+  font-size: 1.05rem;
+  transition: 0.3s;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp
+  input:focus {
+  border: 2px solid rgb(62, 113, 255);
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp
+  .searchicon {
+  position: absolute;
+  right: 0;
+  width: 2.3rem;
+  padding: 0.5rem;
+  height: 100%;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems {
+  width: 100%;
+  max-height: 10rem;
+  overflow: auto;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems::-webkit-scrollbar {
+  width: 5px;
+  background-color: gainsboro;
+  border-radius: 50rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 50rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems
+  .optionitem {
+  cursor: pointer;
+  width: 100%;
+  margin: 0.3rem 0;
+  background-color: rgb(224, 224, 224);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems
+  .notfounditem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems
+  .optionitem:first-child {
+  margin: 0;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  input::placeholder {
+  font-size: 1.1rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group:has(.worktimes) {
+  min-height: 10rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > .worktimes {
+  width: 100%;
+  height: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .worktimes
+  > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .worktimes
+  > div
+  .timepicker {
+  width: 48% !important;
+  margin: 0 1%;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .worktimes
+  > div
+  .timepicker
+  > span {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  height: 100%;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .worktimes
+  > div
+  .timepicker
+  > span
+  > label {
+  width: 20% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  > .worktimes
+  > div
+  .timepicker
+  > span
+  > input {
+  width: 80% !important;
+  box-sizing: border-box !important;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > span {
+  color: red;
+  height: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  padding: 0 0.2rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group .adminimage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 7rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group:has(input[type='file']) {
+  min-height: 11rem !important;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group .adminimage label {
+  height: 100%;
+  width: 7rem;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(62, 113, 255);
+  border: 2px solid transparent;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  .adminimage
+  label
+  > i {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  .adminimage
+  label:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  .adminimage
+  > .previewimage {
+  max-width: 7rem;
+  max-height: 100%;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.admindashboard
+  .maincontent
+  .contentsec
+  form#add_doctor
+  .input-row
+  .input-group
+  .adminimage
+  > .previewimage
+  img {
+  width: 100%;
+  height: 100%;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group:has(textarea) {
+  /* width: 64.666%; */
+  /* margin: 0 1%; */
+  min-height: 11rem;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row .input-group > textarea {
+  width: 100%;
+  height: 7rem;
+  padding: 0.3rem 0.6rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.3rem;
+  resize: none;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row > button {
+  width: 10rem;
+  height: 3rem;
+  margin-right: 1%;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admindashboard .maincontent .contentsec form#add_doctor .input-row > button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.alldoctors {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  direction: ltr;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background-color: rgb(210, 210, 210);
+}
+
+.alldoctors .infobar {
+  width: 100%;
+  height: 2.5rem;
+  box-sizing: border-box;
+  padding: 0 1.7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(163, 163, 163);
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.alldoctors .infobar > p.docpic {
+  width: 7.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alldoctors .infobar > p:not(:first-child) {
+  width: 20%;
+  text-align: center;
+}
+
+.alldoctors .doctoritem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+  height: 6.5rem;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  padding: 0.5rem 0.7%;
+  margin: 0.5rem 1%;
+  background-color: white;
+}
+
+.alldoctors .doctoritem .docimage {
+  height: 100%;
+  width: 7.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.alldoctors .doctoritem .docimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.alldoctors .doctoritem > div:not(:first-child) {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alldoctors .doctoritem > .docoperation button#editdoctor {
+  background-color: rgb(2, 194, 2);
+  border: 2px solid transparent;
+  outline: none;
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 0.3rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.alldoctors .doctoritem > .docoperation button#editdoctor:hover {
+  background-color: transparent;
+  border: 2px solid rgb(2, 194, 2);
+  color: rgb(2, 194, 2);
+}
+
+.alldoctors .doctoritem > .docoperation button#deletedoctor {
+  background-color: rgb(255, 74, 74);
+  border: 2px solid transparent;
+  outline: none;
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+  color: white;
+  border-radius: 0.3rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.alldoctors .doctoritem > .docoperation button#deletedoctor:hover {
+  background-color: transparent;
+  border: 2px solid rgb(255, 74, 74);
+  color: rgb(255, 74, 74);
+}
+
+.contentsec form#addexpertise {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contentsec form#addexpertise > .input-group {
+  width: 35%;
+  min-height: 7rem;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.contentsec form#addexpertise > .input-group > label {
+  font-size: 1.1rem;
+  margin: 0 0.2rem 0.2rem 0;
+  height: 2rem;
+  box-sizing: border-box;
+}
+
+.contentsec form#addexpertise > .input-group > input {
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  outline: none;
+  font-size: 1.1rem;
+  border-radius: 0.4rem;
+}
+
+.contentsec form#addexpertise > .input-group > span {
+  color: red;
+  margin: 0 0.2rem 0.2rem 0;
+  box-sizing: border-box;
+}
+
+.contentsec form#addexpertise > .input-group:has(> button) {
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  min-height: 0;
+}
+
+.contentsec form#addexpertise > .input-group > button {
+  width: 9rem;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.4rem;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+
+.contentsec form#addexpertise > .input-group > button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.contentsec form#addexpertise > .input-group .adminimage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 7rem;
+}
+
+.contentsec form#addexpertise > .input-group:has(input[type='file']) {
+  min-height: 11rem !important;
+}
+
+.contentsec form#addexpertise > .input-group .adminimage label {
+  height: 100%;
+  width: 7rem;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(62, 113, 255);
+  border: 2px solid transparent;
+  border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.contentsec form#addexpertise > .input-group .adminimage label > i {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.contentsec form#addexpertise > .input-group .adminimage label:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.contentsec form#addexpertise > .input-group .adminimage > .previewimage {
+  max-width: 7rem;
+  max-height: 100%;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.contentsec form#addexpertise > .input-group .adminimage > .previewimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.admindashboard .maincontent .contentsec .admineditform {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form {
+  width: 22rem;
+  background-color: white;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 20px 7px rgba(0, 0, 0, 0.115);
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form > h1 {
+  margin-bottom: 1rem;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentsec .admineditform form .input-group:has(button) {
+  height: unset !important;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group label {
+  width: fit-content;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  font-size: 1.1rem;
+  height: 2rem;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group input {
+  width: 100%;
+  height: 3rem;
+  border: 2px solid gray;
+  outline: none;
+  padding: 0.3rem 0.6rem;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group input:focus {
+  border: 2px solid rgb(59, 123, 242);
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group span {
+  height: 2rem;
+  color: red;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group > button {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 2.5rem;
+  border: 2px solid transparent;
+  outline: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.admindashboard .maincontent .contentsec .admineditform form .input-group > button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(59, 123, 242);
+  color: rgb(59, 123, 242);
+}
+
+.expertisesec {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 2rem;
+}
+
+.expertisesec .expertise_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.expertisesec .expertise_title > button {
+  color: white;
+  background-color: rgb(62, 113, 255);
+  border-radius: 0.4rem;
+  padding: 0.4rem 1rem;
+  border: 2px solid transparent;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.expertisesec .expertise_title > button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.expertisesec .swiper {
+  width: 100%;
+  box-sizing: border-box !important;
+  padding: 0 1rem !important;
+}
+
+.expertisesec .swiper .swiper-slide {
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-button-disabled {
+  pointer-events: visible !important;
+  background-color: gainsboro !important;
+  opacity: 0.8 !important;
+}
+
+.expertisesec .swiper .swiper-pagination {
+  position: unset !important;
+}
+
+.expertisesec .swiper .swiper-button-next,
+.expertisesec .swiper .swiper-button-prev {
+  background-color: rgb(62, 113, 255);
+  border-radius: 50rem;
+  padding: 0.6rem;
+  --swiper-navigation-top-offset: 45%;
+  border: 2px solid rgb(190, 190, 190);
+  box-sizing: border-box;
+  color: white;
+}
+
+.expertisesec .swiper .expertise_item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.expertisesec .swiper .expertise_item a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 0 5px 2px gainsboro;
+  box-sizing: border-box;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.expertisesec .swiper .expertise_item a:hover {
+  background-color: rgb(239, 238, 238);
+}
+
+.expertisesec .swiper .expertise_item a:hover .expertise_name p {
+  color: rgb(62, 113, 255);
+}
+
+.expertisesec .swiper .expertise_item a .expertise_image {
+  width: 5rem;
+  height: 5rem;
+}
+
+.expertisesec .swiper .expertise_item a .expertise_image img {
+  width: 100%;
+  height: 100%;
+}
+
+.expertisesec .swiper .expertise_item .expertise_name {
+  width: 100%;
+  margin: 0.6rem 0;
+}
+
+.expertisesec .swiper .expertise_item .expertise_name p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-align: center;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 2);
+  margin: 0;
+  padding: 0;
+  color: rgb(18, 18, 18);
+  transition: 0.3s;
+}
+
+.provincesec {
+  margin-top: 2rem;
+}
+
+.provincesec .container .province_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.provincesec .container .province_title > button {
+  color: white;
+  background-color: rgb(62, 113, 255);
+  border-radius: 0.4rem;
+  padding: 0.4rem 1rem;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  box-sizing: border-box;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.provincesec .container .province_title > button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.provincesec .provincewrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.provincesec .provincewrapper .provinceitem {
+  width: 18%;
+  height: 4rem;
+  box-sizing: border-box;
+  margin: 0.5rem 1%;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(198, 196, 196);
+  transition: 0.3s;
+}
+
+.provincesec .provincewrapper .provinceitem:hover > a {
+  background-color: rgb(62, 113, 255);
+  color: white;
+}
+
+.provincesec .provincewrapper .provinceitem > a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+.provincesec .provincewrapper .provinceitem .provincename {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.provincesec .provincewrapper .provinceitem .provincename svg {
+  margin-left: 0.3rem;
+}
+
+.newdoctorssec {
+  margin-top: 2rem;
+}
+
+.newdoctorssec .container > h1 {
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.newdoctorssec .container .doctorwrapper {
+  height: 18rem;
+  background-color: rgb(62, 113, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 0.7rem;
+}
+
+.newdoctorssec .container .doctorwrapper .doctortext {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-left: 1rem;
+  color: white;
+}
+
+.newdoctorssec .container .doctorwrapper .doctortext p {
+  padding: 0 1rem;
+  box-sizing: border-box;
+  line-height: 2rem;
+  font-size: 1.05rem;
+}
+
+.newdoctorssec .container .doctorwrapper .doctortext a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: 2px solid white;
+  transition: 0.3s;
+}
+
+.newdoctorssec .container .doctorwrapper .doctortext a:hover {
+  background-color: white;
+  color: rgb(62, 113, 255);
+}
+
+.newdoctorssec .doctorwrapper .swiper {
+  width: 80%;
+  margin: 0 !important;
+}
+
+.newdoctorssec .doctorwrapper .swiper .swiper-button-next,
+.newdoctorssec .doctorwrapper .swiper .swiper-button-prev {
+  background-color: rgb(62, 113, 255);
+  color: white;
+  border-radius: 50rem;
+  padding: 0.7rem;
+}
+
+.newdoctorssec .doctorwrapper .swiper .doctoritem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.newdoctorssec .swiper .doctoritem > a {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem;
+  color: black;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.newdoctorssec .swiper .doctoritem .doctorimage {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.newdoctorssec .swiper .doctoritem .doctorimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.newdoctorssec .swiper .doctoritem .fullname {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+.newdoctorssec .swiper .doctoritem .fullname p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 2);
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: rgb(18, 18, 18);
+  font-size: 1.1rem;
+}
+
+.newdoctorssec .swiper .doctoritem .doctorexpertise {
+  width: 100%;
+  color: rgb(72, 72, 72);
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.newdoctorssec .swiper .doctoritem .doctorprovince {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(72, 72, 72);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+.newdoctorssec .swiper .doctoritem .doctorprovince p {
+  margin-right: 0.1rem;
+}
+
+.newdoctorssec .swiper .doctoritem .get_ticket {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 0.6rem 0.5rem 0.6rem;
+  box-sizing: border-box;
+}
+
+.newdoctorssec .swiper .doctoritem .get_ticket button {
+  width: 100%;
+  height: 2.6rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: rgb(62, 113, 255);
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.newdoctorssec .swiper .doctoritem .get_ticket button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+body:has(.expmodaloverlay.active) {
+  overflow: hidden;
+}
+
+.expmodaloverlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.704);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999999;
+}
+
+.expmodaloverlay .expmodalwrapper {
+  width: 40%;
+  height: 90%;
+  border-radius: 0.5rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  box-sizing: border-box;
+  padding: 0.7rem;
+  position: relative;
+  color: rgb(44, 43, 43);
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalclose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalclose i {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  border: 2px solid transparent;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalclose i:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalcount {
+  font-weight: bold;
+  color: rgb(86, 85, 85);
+  margin-bottom: 1.5rem;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalsearch {
+  width: 90%;
+  height: 3rem;
+  border: 2px solid gray;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalsearch:has(input:focus) {
+  box-shadow: 0 0 4px 1px rgb(62, 113, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalsearch svg {
+  position: absolute;
+  right: 0;
+  width: 2.5rem;
+  height: 100%;
+  padding: 0.4rem;
+  color: gray;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalsearch input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0.3rem 2.5rem 0.3rem 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  color: rgb(54, 54, 54);
+}
+
+.expmodaloverlay .expmodalwrapper .expmodalsearch input::placeholder {
+  color: gray;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist {
+  width: 90%;
+  height: 28rem;
+  overflow: auto;
+  margin-top: 1rem;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist .expmodalitem {
+  width: 100%;
+  border: 2px solid rgb(184, 183, 183);
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist .expmodalitem.notfount {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(71, 71, 71);
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist .expmodalitem:has(:not(.notfound)):hover {
+  background-color: rgb(98, 140, 255);
+  border: 2px solid transparent;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist .expmodalitem:hover > a {
+  color: white;
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist .expmodalitem > a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0.2rem 1rem;
+  text-decoration: none;
+  transition: 0.3s;
+  color: rgb(39, 39, 39);
+}
+
+.expmodaloverlay .expmodalwrapper .expmodallist .expmodalitem .expinfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.allexpertise {
+  width: 100%;
+  height: 100%;
+  background-color: gainsboro;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+.allexpertise .expertiseitem {
+  width: 18%;
+  margin: 0 1% 1rem 1%;
+  background-color: white;
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allexpertise .expertiseitem .expertiseimage {
+  height: 5rem;
+}
+
+.allexpertise .expertiseitem .expertiseimage img {
+  width: 5rem;
+  height: 100%;
+}
+
+.allexpertise .expertiseitem .expertisename {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.allexpertise .expertiseitem .expertisename p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 2);
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: rgb(18, 18, 18);
+}
+
+.allexpertise .expertiseitem .expertiseoperation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.allexpertise .expertiseitem .expertiseoperation button {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.allexpertise .expertiseitem .expertiseoperation button#delete_expertise {
+  background-color: rgb(255, 71, 71);
+  margin-top: 0.5rem;
+}
+
+.allexpertise .expertiseitem .expertiseoperation button#delete_expertise:hover {
+  background-color: transparent;
+  border: 2px solid rgb(255, 71, 71);
+  color: rgb(255, 71, 71);
+}
+
+.allexpertise .expertiseitem .expertiseoperation button#edit_expertise {
+  background-color: rgb(2, 194, 2);
+}
+
+.allexpertise .expertiseitem .expertiseoperation button#edit_expertise:hover {
+  background-color: transparent;
+  border: 2px solid rgb(2, 194, 2);
+  color: rgb(2, 194, 2);
+}
+
+.getticketwrapper {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.getticketwrapper .filterbox {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+  position: sticky;
+  top: 7.5rem;
+  border-radius: 1rem;
+}
+
+.getticketwrapper .filterbox .filterheader {
+  position: sticky;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+
+.getticketwrapper .filterbox .filterheader > h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.getticketwrapper .filterbox .filterheader .clearfilters {
+  border-radius: 50rem;
+  background-color: rgba(255, 57, 57, 0.247);
+  color: red;
+  border: 2px solid transparent;
+  outline: none;
+  box-sizing: border-box;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.getticketwrapper .filterbox .filterheader .clearfilters:hover {
+  background-color: transparent;
+  border: 2px solid rgb(250, 107, 107);
+}
+
+.getticketwrapper .filterbox .filterheader .clearfilters svg {
+  margin-right: 0.3rem;
+}
+
+.getticketwrapper .filterbox .filterinputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group {
+  margin: 0.5rem 0;
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > label {
+  font-weight: bold;
+  color: rgb(42, 42, 42);
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp {
+  width: 100%;
+  height: 3rem;
+  padding: 0.3rem 0.6rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  border: 2px solid gray;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.6rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > span.selectlabel {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > span.selectlabel.lowcolor {
+  color: rgb(108, 108, 108);
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > .selecticon {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > .selecticon.lowcolor {
+  color: rgb(108, 108, 108);
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > .expoptions {
+  position: absolute;
+  width: 100%;
+  top: 3.5rem;
+  left: 0;
+  background-color: white;
+  z-index: 999999;
+  box-sizing: border-box;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgb(156, 155, 155);
+  opacity: 0;
+  transition: 0.3s;
+  cursor: default;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > .expoptions.open {
+  opacity: 1;
+  pointer-events: unset;
+  transform: translateY(0px);
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > .expoptions .searchexp {
+  width: 100%;
+  height: 2.3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp
+  input {
+  width: 100%;
+  height: 100%;
+  border: 2px solid gray;
+  border-radius: 0.3rem;
+  outline: none;
+  box-sizing: border-box;
+  padding: 0.3rem 2.3rem 0.3rem 0.5rem;
+  font-size: 1.05rem;
+  transition: 0.3s;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp
+  input:focus {
+  border: 2px solid rgb(62, 113, 255);
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .searchexp
+  .searchicon {
+  position: absolute;
+  right: 0;
+  width: 2.3rem;
+  padding: 0.5rem;
+  height: 100%;
+}
+
+.getticketwrapper .filterbox .filterinputs .input-group > .selectexp > .expoptions .expitems {
+  width: 100%;
+  max-height: 10rem;
+  overflow: auto;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems::-webkit-scrollbar {
+  width: 5px;
+  background-color: gainsboro;
+  border-radius: 50rem;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 50rem;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems
+  .optionitem {
+  cursor: pointer;
+  width: 100%;
+  margin: 0.3rem 0;
+  background-color: rgb(224, 224, 224);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems
+  .notfounditem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.getticketwrapper
+  .filterbox
+  .filterinputs
+  .input-group
+  > .selectexp
+  > .expoptions
+  .expitems
+  .optionitem:first-child {
+  margin: 0;
+}
+
+body:has(.getticketwrapper) {
+  background-color: rgb(235, 235, 235);
+}
+
+.getticketwrapper .doctorsbox {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.getticketwrapper .doctorsbox > h2.searchtitle {
+  display: flex;
+  box-sizing: border-box;
+  padding-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.getticketwrapper .doctorsbox .doctoritem.doctornotfount {
+  font-size: 1.3rem;
+  width: 100%;
+  height: 10rem;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.getticketwrapper .doctorsbox .doctoritem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.getticketwrapper .doctorsbox .doctoritem:first-child {
+  margin-top: 0 !important;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a {
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  /* border: 2px solid gainsboro; */
+  background-color: white;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .docbuttons {
+  width: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .docbuttons > a {
+  width: 100%;
+  text-decoration: none;
+  color: rgb(59, 123, 242);
+  background-color: transparent;
+  border: 2px solid rgb(59, 123, 242);
+  border-radius: 50rem;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .docbuttons > a:hover {
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border: 2px solid rgb(59, 123, 242);
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .docbuttons > button.getticket {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 50rem;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .docbuttons > button.getticket:hover {
+  background-color: transparent;
+  border: 2px solid rgb(59, 123, 242);
+  color: rgb(59, 123, 242);
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .doctorinfowrapper {
+  display: flex;
+  align-items: center;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .image {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .name-exp {
+  display: flex;
+  flex-direction: column;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .doctorinfo .name-exp > p:first-child {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .docaddress {
+  width: 100%;
+  border-radius: 50rem;
+  border: 2px solid gainsboro;
+  padding: 0.3rem 1rem 0.3rem 0.2rem;
+}
+
+.getticketwrapper .doctorsbox .doctoritem > a .docaddress p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 1);
+  margin: 0;
+  padding: 0;
+}
+
+body:has(.doctordetail) {
+  background-color: rgb(234, 234, 234);
+}
+
+.doctordetail {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.doctordetail .detailinfo {
+  width: 35%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.doctordetail .detailinfo .detailimage {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50rem;
+  overflow: hidden;
+}
+
+.doctordetail .detailinfo .detailimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.doctordetail .detailinfo .detaildesc {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-right: 2rem;
+}
+
+.doctordetail .detailinfo .detaildesc h2 {
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+
+.doctordetail .detailinfo .detaildesc p {
+  margin-bottom: 0.5rem;
+}
+
+.doctordetail .detailinfo .detaildesc p.province {
+  display: flex;
+  align-items: center;
+}
+
+.doctordetail .detailinfo .detaildesc p.province svg {
+  margin-left: 0.3rem;
+}
+
+.doctordetail .detailinfo .detaildesc p.doctorcode {
+  display: flex;
+  align-items: center;
+}
+
+.doctordetail .detailinfo .detaildesc p.doctorcode svg {
+  margin-left: 0.3rem;
+}
+
+.doctordetail .detailoffice {
+  width: 63.5%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1rem 2rem 3rem 2rem;
+  border-radius: 1rem;
+}
+
+.doctordetail .detailoffice .officetitle {
+  display: flex;
+  align-items: center;
+}
+
+.doctordetail .detailoffice .officetitle svg {
+  margin-left: 0.7rem;
+}
+
+.doctordetail .detailoffice .office_address {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(197, 196, 196);
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.doctordetail .detailoffice .office_address p.officename {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-bottom: 0.7rem;
+}
+
+.doctordetail .detailoffice .office_address p.address {
+  display: flex;
+  align-items: start;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed gray;
+}
+
+.doctordetail .detailoffice .office_address p.address span {
+  width: 97%;
+}
+
+.doctordetail .detailoffice .office_address p.address svg {
+  margin-left: 0.3rem;
+  width: 3%;
+  margin-top: 0.2rem;
+}
+
+.doctordetail .detailoffice .office_address button {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 1.1rem;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1.5rem 0.3rem 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.doctordetail .detailoffice .office_address button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(59, 123, 242);
+  color: rgb(59, 123, 242);
+}
+
+.doctor_suggestion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.doctor_suggestion > h1 {
+  margin-bottom: 2rem;
+}
+
+.doctor_suggestion .swiper {
+  width: 100%;
+}
+
+.doctor_suggestion .swiper .swiper-button-disabled {
+  background-color: rgba(0, 0, 0, 0.57) !important;
+  color: white !important;
+}
+
+.doctor_suggestion .swiper .swiper-button-next,
+.doctor_suggestion .swiper .swiper-button-prev {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.6rem;
+  border-radius: 50rem;
+  color: white;
+  background-color: rgb(59, 123, 242);
+}
+
+.doctor_suggestion .swiper .swiper-button-next svg {
+  margin-right: 0.1rem;
+}
+
+.doctor_suggestion .swiper .swiper-button-prev svg {
+  margin-left: 0.1rem;
+}
+
+.doctor_suggestion .swiper .doctoritem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.doctor_suggestion .swiper .doctoritem > a {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem;
+  color: black;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.doctor_suggestion .swiper .doctoritem .doctorimage {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor_suggestion .swiper .doctoritem .doctorimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.doctor_suggestion .swiper .doctoritem .fullname {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+.doctor_suggestion .swiper .doctoritem .fullname p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-height: 1.5rem;
+  max-height: calc(1.5rem * 2);
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: rgb(18, 18, 18);
+  font-size: 1.1rem;
+}
+
+.doctor_suggestion .swiper .doctoritem .doctorexpertise {
+  width: 100%;
+  color: rgb(72, 72, 72);
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.doctor_suggestion .swiper .doctoritem .doctorprovince {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(72, 72, 72);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+.doctor_suggestion .swiper .doctoritem .doctorprovince p {
+  margin-right: 0.1rem;
+}
+
+.doctor_suggestion .swiper .doctoritem .get_ticket {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 0.6rem 0.5rem 0.6rem;
+  box-sizing: border-box;
+}
+
+.doctor_suggestion .swiper .doctoritem .get_ticket button {
+  width: 100%;
+  height: 2.6rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: rgb(62, 113, 255);
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.doctor_suggestion .swiper .doctoritem .get_ticket button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+body:has(.ticketoverlay.active) {
+  overflow: hidden;
+}
+
+.ticketoverlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.704);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999999;
+}
+
+.ticketoverlay .ticketmodalwrapper {
+  width: 50%;
+  height: 80%;
+  border-radius: 0.5rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  box-sizing: border-box;
+  padding: 1.3rem 1.7rem 0.7rem 1.7rem;
+  position: relative;
+  color: rgb(44, 43, 43);
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketclose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  right: 1.7rem;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketclose i {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  border: 2px solid transparent;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketclose i:hover {
+  background-color: transparent;
+  border: 2px solid rgb(62, 113, 255);
+  color: rgb(62, 113, 255);
+}
+
+.ticketoverlay .ticketmodalwrapper .ticket_title {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 2rem 1rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid gainsboro;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo .image {
+  overflow: hidden;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo .image img {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50rem;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo .desc {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo .desc p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo .desc p svg {
+  width: 5%;
+}
+
+.ticketoverlay .ticketmodalwrapper .ticketinfo .desc p span {
+  width: 95%;
+}
+
+.ticketoverlay .ticketmodalwrapper > button.submit {
+  width: 25%;
+  height: 2.7rem;
+  box-sizing: border-box;
+  padding: 0.3rem 0.6rem;
+  font-size: 1.1rem;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border-radius: 0.4rem;
+  border: 2px solid transparent;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.ticketoverlay .ticketmodalwrapper > button.submit:hover {
+  background-color: transparent;
+  color: rgb(59, 123, 242);
+  border: 2px solid rgb(59, 123, 242);
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper {
+  width: 100%;
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper .swiper-button-next,
+.ticketoverlay .ticketmodalwrapper .swiper .swiper-button-prev {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  border-radius: 50rem;
+  padding: 0.5rem;
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper .dateitem {
+  width: 100%;
+  height: 6rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0.5rem 0;
+  border: 2px solid rgb(59, 123, 242);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper .dateitem > p:nth-child(3) {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper .dateitem.disable {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper .dateitem:not(.disable):hover {
+  background-color: rgb(59, 123, 242);
+  color: white;
+}
+
+.ticketoverlay .ticketmodalwrapper .swiper .dateitem.selected {
+  background-color: rgb(59, 123, 242);
+  color: white;
+}
+
+.ticketoverlay .ticketmodalwrapper .timeslots {
+  width: 100%;
+  max-height: 10rem;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: start;
+  margin: 1rem 0;
+}
+
+.ticketoverlay .ticketmodalwrapper .timeslots .slotitem {
+  width: 10.5%;
+  margin: 0.4rem 1%;
+  padding: 0.3rem 0.6rem;
+  font-size: 1.05rem;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  border: 2px solid rgb(59, 123, 242);
+  color: rgb(59, 123, 242);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.ticketoverlay .ticketmodalwrapper .timeslots .slotitem.booked {
+  background-color: red;
+}
+
+.ticketoverlay .ticketmodalwrapper .timeslots .slotitem.selected {
+  background-color: rgb(59, 123, 242);
+  color: white;
+}
+
+.ticketoverlay .ticketmodalwrapper .timeslots .slotitem:hover {
+  background-color: rgb(59, 123, 242);
+  color: white;
+}
+
+.myappointments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.myappointments .tabs {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.myappointments .tabs button {
+  border-top: 2px solid rgb(59, 123, 242);
+  border-right: 2px solid rgb(59, 123, 242);
+  border-left: 2px solid rgb(59, 123, 242);
+  border-bottom: none;
+  outline: none;
+  padding: 0.5rem 0.8rem;
+  background-color: transparent;
+  color: rgb(59, 123, 242);
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  border-radius: 0.6rem 0.6rem 0 0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.myappointments .tabs button.selected {
+  background-color: rgb(59, 123, 242);
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-bottom: none;
+  color: white;
+}
+
+.myappointments .tab-content {
+  width: 100%;
+  height: 33rem;
+  overflow: auto;
+  border-radius: 0.8rem 0rem 0.8rem 0.8rem;
+  background-color: rgb(236, 236, 236);
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+}
+
+.myappointments .tab-content .appointmentitem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  background-color: white;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.myappointments .tab-content:has(.notfound) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myappointments .tab-content .notfound {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.myappointments .appointmentitem .image {
+  width: 7rem;
+  height: 7rem;
+  overflow: hidden;
+  border-radius: 50rem;
+}
+
+.myappointments .appointmentitem .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.myappointments .appointmentitem > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.myappointments .appointmentitem > div > p {
+  line-height: 3rem;
+}
+
+.myappointments .appointmentitem .name_code .doctorcode {
+  display: flex;
+  align-items: center;
+}
+
+.myappointments .appointmentitem .name_code .doctorcode span {
+  margin-top: 0.2rem;
+  margin-right: 0.4rem;
+}
+
+.myappointments .appointmentitem .status span.orange {
+  color: rgb(248, 134, 4);
+}
+
+.myappointments .appointmentitem .status span.green {
+  color: rgb(30, 181, 0);
+}
+
+.myappointments .appointmentitem .status span.red {
+  color: rgb(255, 0, 0);
+}
+
+.myappointments .appointmentitem .operation button {
+  padding: 0.3rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.4rem;
+  outline: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+}
+
+.myappointments .appointmentitem .operation button.cancelappointment {
+  background-color: rgb(255, 63, 63);
+}
+
+.myappointments .appointmentitem .operation button.doneappointment {
+  background-color: rgb(2, 207, 2);
+}
+
+.myappointments .appointmentitem .operation button.doneappointment:hover {
+  color: rgb(2, 207, 2);
+  border: 2px solid rgb(2, 207, 2);
+  background-color: transparent;
+}
+
+.myappointments .appointmentitem .operation button.cancelappointment:hover {
+  background-color: transparent;
+  border: 2px solid rgb(255, 63, 63);
+  color: rgb(255, 63, 63);
+}
+
+.editprofilewrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editprofilewrapper .editimage {
+  width: 50%;
+  height: 100%;
+}
+
+.editprofilewrapper .editimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.editprofilewrapper .editform {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editform form#patientsignup {
+  width: 38rem;
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0 23px 5px rgb(213, 213, 213);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editform form#patientsignup > h1 {
+  margin-bottom: 0.5rem;
+}
+
+.editform form#patientsignup .input-row:has(input) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.editform form#patientsignup .input-row .input-group {
+  width: 47%;
+  min-height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  position: relative;
+}
+
+.editform form#patientsignup .input-row .input-group label {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  min-height: 2rem;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+}
+
+.editform form#patientsignup .input-row .input-group input {
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  font-size: 1.05rem;
+  border: 2px solid gray;
+  outline: none;
+  border-radius: 0.4rem;
+  transition: 0.3s;
+}
+
+.editform form#patientsignup .input-row .input-group input:focus {
+  border: 2px solid transparent;
+  box-shadow: 0 0 5px 2px rgb(85, 130, 255);
+}
+
+.editform form#patientsignup .input-row .input-group span {
+  display: flex;
+  width: 100%;
+  min-height: 2rem;
+  align-items: start;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  color: red;
+}
+
+.editform form#patientsignup .input-row:has(button) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.editform form#patientsignup .input-row button {
+  width: 30%;
+  height: 3rem;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 0.5rem;
+  background-color: rgb(62, 113, 255);
+  color: white;
+  font-size: 1.1rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.editform form#patientsignup .input-row button:hover {
+  border: 2px solid rgb(62, 113, 255);
+  background-color: transparent;
+  color: rgb(62, 113, 255);
+}
+
+.editform form#patientsignup .input-row:has(p) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.editform form#patientsignup .input-row > a {
+  text-decoration: none;
+  color: rgb(62, 113, 255);
+  margin-right: 0.3rem;
+}
+
+.doctorspatients {
+  width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctorspatients > .filterbar {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.doctorspatients > .filterbar > button {
+  border-radius: 50rem;
+  padding: 0.1rem 1rem;
+  font-size: 1rem;
+  border: 2px solid rgb(59, 123, 242);
+  outline: none;
+  background-color: transparent;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.doctorspatients > .filterbar > button.active {
+  background-color: rgba(39, 126, 247, 0.244);
+}
+
+.doctorspatients:has(> .notfound) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.doctorspatients > .notfound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.5rem;
+  height: 100%;
+}
+
+.doctorspatients .doctorspatientitem {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  box-sizing: border-box;
+  border-radius: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+.doctorspatients .doctorspatientitem > div > p {
+  line-height: 3.5rem;
+  font-size: 1.1rem;
+}
+
+.doctorspatients .doctorspatientitem > div.status > p > span.red {
+  color: rgb(255, 0, 0);
+}
+
+.doctorspatients .doctorspatientitem > div.status > p > span.orange {
+  color: rgb(248, 134, 4);
+}
+
+.doctorspatients .doctorspatientitem > div.status > p > span.green {
+  color: rgb(30, 181, 0);
+}
+
+.doctorspatients .doctorspatientitem > div.operation > button {
+  border: 2px solid transparent;
+  outline: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  background-color: rgb(2, 185, 2);
+  font-size: 1.1rem;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.doctorspatients .doctorspatientitem > div.operation > button:hover {
+  background-color: transparent;
+  border: 2px solid rgb(2, 185, 2);
+  color: rgb(2, 185, 2);
+}
+
+footer {
+  width: 100%;
+  margin-top: 4rem;
+  background-color: rgb(59, 123, 242);
+  color: white;
+  padding-top: 2rem;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .footer_top {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+footer .footer_top .summery_namads {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 2rem;
+}
+
+footer .footer_top .summery_namads .footer_logo {
+  width: 14rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+footer .footer_top .summery_namads .footer_logo img {
+  width: 100%;
+  height: 100%;
+}
+
+footer .footer_top .summery_namads .summery {
+  width: 100%;
+  text-align: justify;
+  margin: 1.5rem 0;
+}
+
+footer .footer_top .summery_namads .namads {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+footer .footer_top .summery_namads .namads img {
+  width: 7rem;
+  height: 7rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+footer .footer_top .email {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 2rem;
+}
+
+footer .footer_top .email .email_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+footer .footer_top .email .email_wrapper i {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: rgb(59, 123, 242);
+  background-color: rgb(255, 255, 255);
+  margin-left: 1rem;
+}
+
+footer .footer_top .socialmedia {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-right: 3rem;
+}
+
+footer .footer_top .socialmedia .socialicons {
+  width: 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+footer .footer_top .socialmedia .socialicons > i {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.6rem;
+  margin: 0.3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+  background-color: white;
+  color: rgb(59, 123, 242);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+footer .footer_top .socialmedia .socialicons > i:hover {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+footer .footer_top .socialmedia .socialicons > i:first-child,
+footer .footer_top .socialmedia .socialicons > i:nth-child(2) {
+  margin-top: 0;
+}
+
+footer .footer_top .socialmedia .socialicons > i:nth-child(3),
+footer .footer_top .socialmedia .socialicons > i:last-child {
+  margin-bottom: 0;
+}
+
+footer .footer_copyright {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgb(231, 231, 231);
+  padding: 2rem 0;
+  margin-top: 1rem;
+}
