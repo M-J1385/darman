@@ -14,6 +14,25 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+#nprogress .bar {
+  background: rgb(255, 11, 11) !important;
+  height: 5px !important;
+  border-radius: 50rem !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
 body {
   min-height: 100vh;
 }
@@ -303,7 +322,7 @@ header .headerauth .patientmenu ul.patientsubmenu li > p {
   font-size: 1.1rem;
 }
 
-header .headerauth .patientmenu ul.patientsubmenu li > a>p{
+header .headerauth .patientmenu ul.patientsubmenu li > a > p {
   margin-left: 1.5rem;
 }
 
@@ -1190,6 +1209,14 @@ form .input-group .passwordhide {
   height: 100%;
   box-sizing: border-box;
   background-color: rgb(239, 238, 238);
+}
+
+.admindashboard .maincontent:has(.contentsec form#add_doctor) {
+  background-color: white !important;
+}
+
+.admindashboard .maincontent:has(.contentsec form#addexpertise) {
+  background-color: white !important;
 }
 
 .admindashboard .maincontent .adminheader {
@@ -2378,7 +2405,7 @@ form .input-group .passwordhide {
   .adminimage
   > .previewimage {
   max-width: 7rem;
-  max-height: 100%;
+  height: 100%;
   border-radius: 0.4rem;
   display: flex;
   align-items: center;
@@ -2658,7 +2685,7 @@ form .input-group .passwordhide {
 
 .contentsec form#addexpertise > .input-group .adminimage > .previewimage {
   max-width: 7rem;
-  max-height: 100%;
+  height: 100%;
   border-radius: 0.4rem;
   display: flex;
   align-items: center;
@@ -3085,7 +3112,21 @@ form .input-group .passwordhide {
   justify-content: center;
 }
 
-.newdoctorssec .swiper .doctoritem .doctorimage img {
+.image_loader {
+  width: 100%;
+  height: 100%;
+}
+
+.image_loader .shimmerloader {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.6rem;
+  background: linear-gradient(90deg, #c6c5c5 0%, #f0f0f0 50%, #c6c5c5 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.image_loader .image {
   width: 100%;
   height: 100%;
 }
